@@ -1,0 +1,54 @@
+<div class="main-conteiner">
+    <div class="tree-conteiner">
+        <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <!-- This is the tree node template for leaf nodes -->
+            <cdk-tree-node *cdkTreeNodeDef="let node" cdkTreeNodePadding (click)="selectNode(node)"
+                [style.display]="shouldRender(node) ? 'flex' : 'none'" class="example-tree-node"
+                [ngClass]="{ 'select-row': selectedRowTree == node.name }">
+                <!-- use a disabled button to provide padding for tree leaf -->
+                <button mat-icon-button disabled></button>
+                {{node.name}}
+            </cdk-tree-node>
+            <!-- This is the tree node template for expandable nodes -->
+            <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild" cdkTreeNodePadding
+                [style.display]="shouldRender(node) ? 'flex' : 'none'" class="example-tree-node"
+                (click)="selectNode(node)" [ngClass]="{ 'select-row': selectedRowTree == node.name }">
+                <button mat-icon-button cdkTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name"
+                    (click)="node.isExpanded = !node.isExpanded"
+                    [style.visibility]="node.expandable ? 'visible' : 'hidden'">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                {{node.name}}
+            </cdk-tree-node>
+        </cdk-tree>
+    </div>
+    <div class="PhoneBook-conteiner">
+        <div class="Searchform">
+            <div class="Search-Form-Input">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Поиск контакта</mat-label>
+                    <input matInput placeholder="Примеры: 911, Долгиновский, Офис, 799, Роман, Бухгалтер"
+                        [(ngModel)]="input">
+                </mat-form-field>
+                <button mat-raised-button class="search-form-input-button" (click)="search()">Поиск</button>
+            </div>
+        </div>
+        <div class="contact-conteiner">
+            <div class="contact-box" *ngFor="let i of contactdata">
+                <div class="contact-box-img">
+                    <img src="" alt="">
+                </div>
+                <div class="contact-box-info">
+                    <span>{{i.fio}}</span>
+                    <span>{{i.dolj}}</span>
+                    <span>{{i.place}}</span>
+                </div>
+                <div class="contact-box-number">
+                    {{i.phoneNumber}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

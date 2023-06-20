@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="table-container">
+        <div class="table-box">
+            <table>
+                <tr>
+                    <th>
+                        ФИО
+                    </th>
+                    <th>
+                        Должность
+                    </th>
+                    <th>
+                        Номер телефона
+                    </th>
+                    <th>
+                        Местонахождение
+                    </th>
+                    <th>
+                        Комментарий
+                    </th>
+                    <td>
+                        Действие
+                    </td>
+                </tr>
+                <tr *ngFor="let i of contact">
+                    <td>
+                        {{i.fio}}
+                    </td>
+                    <td>
+                        {{i.dolj}}
+                    </td>
+                    <td>
+                        {{i.phoneNumber}}
+                    </td>
+                    <td>
+                        {{i.place}}
+                    </td>
+                    <td>
+                        {{i.comment}}
+                    </td>
+                    <td>
+                        <button mat-raised-button [matMenuTriggerFor]="menu">
+                            Действие
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item style="color: green;" (click)="switchUpdate(i)">
+                                Изменить
+                            </button>
+                            <button mat-menu-item style="color: red;" (click)="deleteContact(i.id)">
+                                Удалить
+                            </button>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="control-container">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>ФИО</mat-label>
+            <input matInput [(ngModel)]="contactFio">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Должность</mat-label>
+            <input matInput [(ngModel)]="contactDolj">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Номер телефона</mat-label>
+            <input matInput [(ngModel)]="contactPhone">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Выберите объект</mat-label>
+            <mat-select [(ngModel)]="selected">
+                <mat-option *ngFor="let s of structure" [value]="s">
+                    {{s.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Комментарий</mat-label>
+            <input matInput [(ngModel)]="contactComment">
+        </mat-form-field>
+        <button mat-raised-button *ngIf="switchButton" (click)="createContact()"
+            [disabled]="!contactFio || !contactDolj || !contactPhone">Добавить</button>
+        <button mat-raised-button style="color: green;" *ngIf="!switchButton" (click)="updateContact()">
+            Сохранить изменения
+        </button>
+        <div class="searchContact">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Поиск</mat-label>
+                <input matInput [(ngModel)]="input">
+            </mat-form-field>
+            <button mat-raised-button [disabled]="!input" (click)="search()">
+                Поиск
+            </button>
+            <button mat-raised-button (click)="getContacts()">
+                Показать все
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+*::-webkit-scrollbar,
+html *::-webkit-scrollbar {
+    height: 5px;
+    width: 4px;
+}
+*::-webkit-scrollbar-track,
+html *::-webkit-scrollbar-track {
+    background: inherit;
+    margin: 8px;
+}
+*::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar-thumb {
+    background-color: rebeccapurple;
+    border-radius: 5px;
+}
+
+.container{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+.control-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.table-container{
+    width: 50%;
+    height: 99vh;
+    overflow: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+table{
+    text-align: center;
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    tr:first-child{
+        background: rebeccapurple;
+        color: #fff;
+        height: 50px;
+    }
+}
+
+.searchContact{
+    margin-top: 10px;
+    button{
+        margin-left:10px
+    }
+}

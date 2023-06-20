@@ -1,0 +1,132 @@
+*::-webkit-scrollbar,
+html *::-webkit-scrollbar {
+    height: 5px;
+    width: 4px;
+    
+}
+*::-webkit-scrollbar-track,
+html *::-webkit-scrollbar-track {
+    background: inherit;
+    margin: 8px;
+    margin-top: 12px;
+}
+*::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar-thumb {
+    background-color: rebeccapurple;
+    border-radius: 5px;
+}
+.example-tree-node {
+    display: flex;
+    align-items: center;
+
+  }
+  .select-row {
+    background:rebeccapurple;
+    color: white;
+  }
+.main-conteiner{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  .tree-conteiner{
+    height: 99%;
+    margin: 5px;
+    width: 20%;
+    border: 0.1px solid black;
+    border-radius: 20px;
+    overflow: auto;
+  }
+  cdk-tree-node{
+    font-size: 2em;
+    font-family: "Lato", sans-serif;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+  }
+  cdk-tree-node:hover{
+    color: white;
+    background-color: rgb(154, 111, 197);
+  }
+  .Searchform{
+    width: 100%;
+    padding-top: 10px;
+    .example-full-width{
+      width:91%
+    }
+    .search-form-input-button{
+      height: 50px;
+      margin-left: 10px;
+      width: 100px;
+    }
+  }
+  .PhoneBook-conteiner{
+    width: 80%;
+  }
+  .contact-conteiner{
+    width: 98%;
+    height: 90%;
+    overflow: auto;
+    flex-wrap: wrap;
+    display: flex;
+    border: 0.4px solid gray;
+    border-radius: 20px;
+    .contact-box{
+      border-radius: 20px;
+      border: 0.3px solid grey;
+      width: 8.5cm;
+      height: 4.1cm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.3s;
+      &:hover{
+        box-shadow: 2px 2px 5px grey;
+        .contact-box-number{
+          box-shadow: 2px 2px 5px rebeccapurple;
+        }
+      }
+      // .contact-box-img{
+        
+      // }
+      .contact-box-info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span{
+          margin: 4px;
+          &:nth-child(1){
+            font-weight:bold;
+            font-size: 1.6em;
+          }
+          &:nth-child(2){
+            font-size: 1.6em;
+          }
+          &:nth-child(3){
+            font-size: 1.5em;
+          }
+        }
+      }
+      .contact-box-number{
+        margin-top: 10px;
+        width: 90%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.2em;
+        border-radius: 20px;
+        background: rebeccapurple;
+        color: white;
+        transition: 0.3s;
+      }
+    }
+    
+  }
+}
