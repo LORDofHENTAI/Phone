@@ -1,0 +1,56 @@
+<div class="main">
+    <div class="table-container">
+        <div class="table-box">
+            <table>
+                <tr>
+                    <th>
+                        Имя файла
+                    </th>
+                    <th>
+                        Размер файла
+                    </th>
+                    <td>
+                        Действие
+                    </td>
+                </tr>
+                <tr *ngFor="let i of fileList">
+                    <td>
+                        {{i.fileName}}
+                    </td>
+                    <td>
+                        {{i.size}}
+                    </td>
+                    <td>
+                        <button mat-raised-button [matMenuTriggerFor]="menu">
+                            Действие
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item style="color: green;" (click)="getFile(i.fileName)">
+                                Скачать
+                            </button>
+                            <button mat-menu-item style="color: red;" (click)="deleteFile(i.fileName)">
+                                Удалить
+                            </button>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="control-container">
+        <div class="input__wrapper">
+            <input name="file" type="file" name="file" id="input__file" class="input input__file"
+                (change)="selectFile($event)">
+            <label for="input__file" class="input__file-button">
+                <span class="input__file-icon-wrapper">
+                    <span class="material-icons">
+                        file_download
+                    </span>
+                </span>
+                <span class="input__file-button-text">{{selectedFileName}}</span>
+            </label>
+        </div>
+        <button mat-raised-button (click)="Upload()">Загрузить</button>
+    </div>
+
+</div>

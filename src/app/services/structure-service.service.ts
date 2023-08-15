@@ -13,7 +13,8 @@ import { CRUDphoneModel } from '../models/CrudphoneModel';
 export class StructureServiceService {
 
   constructor(private http: HttpClient) { }
-  private url: string = 'http://192.168.1.123:7260/'
+  // private url: string = 'http://192.168.7.196:7260/'
+  private url: string = 'http://192.168.7.181:7260/'
   GetPhoneBookUrl = this.url + 'GetPhoneBook/'
   GetStructure = this.url + 'GetStructure/'
   GetPhonesByInputUrl = this.url + 'GetPhonesByInput/'

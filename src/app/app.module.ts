@@ -16,11 +16,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { FileServiceComponent } from './components/file-service/file-service.component';
 @NgModule({
   declarations: [
     AppComponent,
     PhoneBookComponent,
-    AdminComponent
+    AdminComponent,
+    FileServiceComponent
   ],
   imports: [
     BrowserModule,
